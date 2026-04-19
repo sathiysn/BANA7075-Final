@@ -1,9 +1,8 @@
-# BANA7075-Final
-PMIS MVP: Predictive Maintenance Machine Learning Pipeline
-Overview
+# PMIS MVP: Predictive Maintenance Machine Learning Pipeline
+## Overview
 This project implements an end-to-end Machine Learning pipeline designed to predict industrial machine failures within a 4-hour window. The system fetches validated sensor data, trains competing classification models (Random Forest and XGBoost), evaluates them using performance metrics, and registers the "Champion" model into a PostgreSQL database for production use.
 
-Key Features
+## Key Features
 Automated Data Ingestion: Connects to a Supabase-hosted PostgreSQL instance to retrieve engineered features.
 
 Multi-Model Training: Trains and tunes both RandomForestClassifier and XGBClassifier with class-weight balancing to handle imbalanced failure data.
@@ -12,7 +11,7 @@ Experiment Tracking: Uses MLflow to log parameters, metrics (Recall, Precision, 
 
 Model Registry: Automatically identifies the best-performing model based on F1-score and inserts the metadata into a model_registry table.
 
-Tech Stack
+## Tech Stack
 Language: Python 3.12
 
 ML Frameworks: Scikit-Learn, XGBoost
@@ -23,11 +22,11 @@ Database: SQLAlchemy, Psycopg2 (Supabase/PostgreSQL)
 
 Environment: Google Colab / Jupyter Notebook
 
-Getting Started
-Prerequisites
+## Getting Started
+### Prerequisites
 You will need a PostgreSQL database (the code is configured for Supabase) with a table named public.validated_features.
 
-Installation
+### Installation
 Run the following to install necessary dependencies:
 
 Bash
@@ -37,7 +36,7 @@ The pipeline uses Google Colab's userdata for secure credential management. Ensu
 
 DB_PASS: Your database password.
 
-Workflow Details
+### Workflow Details
 1. Data Retrieval
 The pipeline executes a SQL query to fetch sensor metrics including:
 
@@ -66,5 +65,3 @@ The winning model and its specific feature list are serialized using joblib and 
 
 Authors
 Steven H. Jones Assistant Professor, University of Cincinnati
-
-BANA 7075 - Final Project
